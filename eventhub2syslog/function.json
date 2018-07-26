@@ -1,0 +1,12 @@
+{
+    "bindings": [
+      {
+        "type": "eventHubTrigger",
+        "name": "myEventHubMessage",
+        "connection": "logging01_RootManageSharedAccessKey_EVENTHUB",
+        "eventHubName": "logs",
+        "consumerGroup": "$Default",
+        "direction": "in"
+      }
+    ]
+  }
