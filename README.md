@@ -1,5 +1,4 @@
-# eventhub2syslog
-Forward Azure monitor logs to syslog (via Event Hub).
+# Forward Azure Monitor Logs to Syslog (via Event Hub).
 
 [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) provides base-level infrastructure metrics and logs for most services in Microsoft Azure. Azure services that do not yet put their data into Azure Monitor will put it there in the future.
 
@@ -7,6 +6,8 @@ Azure monitor allows you to [forward monitoring data to eventhub](https://azure.
 
 A common scenario is to have a centralized SIEM based on syslog. The best option is for the SIEM to integrate directly with Azure monitor (Splunk, IBM QRadar, ArcSight...). If that is not available you can use an Azure Function accomplish this integration. This project is a sample for that.
 
+# Overview:
+![alt text](https://github.com/miguelangelopereira/eventhub2syslog/media/evenhub2syslog_overview.png "azuremonitor2syslog")
 
 
 
