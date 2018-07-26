@@ -1,0 +1,85 @@
+{
+  "_from": "syslog-client",
+  "_id": "syslog-client@1.1.1",
+  "_inBundle": false,
+  "_integrity": "sha1-vbKN47W36yihE1LsPreOVa7Sq2s=",
+  "_location": "/syslog-client",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "syslog-client",
+    "name": "syslog-client",
+    "escapedName": "syslog-client",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/syslog-client/-/syslog-client-1.1.1.tgz",
+  "_shasum": "bdb28de3b5b7eb28a11352ec3eb78e55aed2ab6b",
+  "_spec": "syslog-client",
+  "_where": "D:\\home\\site\\wwwroot",
+  "author": {
+    "name": "Paul Grove",
+    "email": "paul.a.grove@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/paulgrove/node-syslog-client/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Paul Grove",
+      "email": "paul.a.grove@gmail.com"
+    },
+    {
+      "name": "Stephen Vickers",
+      "email": "stephen.vickers.sv@gmail.com"
+    },
+    {
+      "name": "Tim Garthwaite",
+      "email": "tim@mividstudios.com"
+    }
+  ],
+  "dependencies": {},
+  "deprecated": false,
+  "description": "TCP and UDP syslog client RFC 5424 & RFC 3164",
+  "devDependencies": {
+    "bluebird": "^3.4.6",
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "homepage": "https://github.com/paulgrove/node-syslog-client#readme",
+  "keywords": [
+    "logger",
+    "logging",
+    "syslog",
+    "syslog-client",
+    "syslog-logger",
+    "syslog-logging",
+    "tcp-syslog",
+    "tcp-syslog-client",
+    "udp-syslog",
+    "udp-syslog-client"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "syslog-client",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/paulgrove/node-syslog-client.git"
+  },
+  "scripts": {
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec",
+    "test": "mocha --reporter spec"
+  },
+  "version": "1.1.1"
+}

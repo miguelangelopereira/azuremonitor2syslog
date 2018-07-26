@@ -1,10 +1,25 @@
 module.exports = function (context, myEventHubMessage) {
     var syslog = require("syslog-client");
-    var syslogserver = "40.115.13.56"
+    var syslogserver = GetEnvironmentVariable("SYSLOG_SERVER");
+    var protocol;
+    if (GetEnvironmentVariable("SYSLOG_PROTOCOL")=="TCP") {
+        protocol = syslog.Transport.Tcp;
+    } else {
+        protocol = syslog.Transport.Udp;
+    }
+
+    var sourcehostname;
+
+    if (GetEnvironmentVariable("SYSLOG_HOSTNAME")=="") {
+        sourcehostname = "azurefunction"
+    } else {
+        sourcehostname = GetEnvironmentVariable("SYSLOG_HOSTNAME");
+    }
+
     var options = {
-        syslogHostname: "azurefunction",
-        transport: syslog.Transport.Tcp,
-        port: 1000
+        syslogHostname: sourcehostname,
+        transport: protocol,    
+        port: GetEnvironmentVariable("SYSLOG_PORT")
     };
 
     context.log('Event Hubs trigger function processed message: ', myEventHubMessage);

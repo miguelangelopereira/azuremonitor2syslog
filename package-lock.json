@@ -1,0 +1,11 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "syslog-client": {
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/syslog-client/-/syslog-client-1.1.1.tgz",
+      "integrity": "sha1-vbKN47W36yihE1LsPreOVa7Sq2s="
+    }
+  }
+}
