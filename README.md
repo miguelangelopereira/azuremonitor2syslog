@@ -9,6 +9,10 @@ A common scenario is to have a centralized SIEM based on syslog. The best option
 # Overview
 ![alt text](https://github.com/miguelangelopereira/azuremonitor2syslog/blob/master/media/evenhub2syslog_overview.png "azuremonitor2syslog")
 
+The Azure monitor will send metris to Event Hub. The Event Hub messages will trigger this Javascript Azure Function that will convert the message to syslog format and send to the correct server.
+
+Note: To send the syslog messages to an internal server in a VNET, configure the Function App with [VNET integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet).
+
 # Usage
 * Create Event Hub and setup [Azure monitoring forwarding](https://azure.microsoft.com/en-us/blog/azure-monitor-send-monitoring-data-to-an-event-hub/)
 * Create the Function App (v2)
