@@ -29,7 +29,7 @@ module.exports = function (context, myEventHubMessage) {
     var options = {
         syslogHostname: SYSLOG_HOSTNAME,
         transport: SYSLOG_PROTOCOL,    
-        port: SYSLOG_PORT
+        port: 1000
     };
 
     // log connection variables
