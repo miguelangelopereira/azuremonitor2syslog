@@ -1,26 +1,40 @@
+// Forward Azure Monitor Logs to Syslog (via Event Hub)
+// Developed as a sample for testing purpuses
+// https://github.com/miguelangelopereira/azuremonitor2syslog
+// miguelp@microsoft.com
+
 module.exports = function (context, myEventHubMessage) {
+    // initializing syslog
     var syslog = require("syslog-client");
-    var syslogserver = GetEnvironmentVariable("SYSLOG_SERVER");
-    var protocol;
+
+    // getting environment variables
+    var SYSLOG_SERVER = GetEnvironmentVariable("SYSLOG_SERVER");
+    var SYSLOG_PROTOCOL;
     if (GetEnvironmentVariable("SYSLOG_PROTOCOL")=="TCP") {
-        protocol = syslog.Transport.Tcp;
+        SYSLOG_PROTOCOL = syslog.Transport.Tcp;
     } else {
-        protocol = syslog.Transport.Udp;
+        SYSLOG_PROTOCOL = syslog.Transport.Udp;
     }
 
-    var sourcehostname;
-
+    var SYSLOG_HOSTNAME;
     if (GetEnvironmentVariable("SYSLOG_HOSTNAME")=="") {
-        sourcehostname = "azurefunction"
+        SYSLOG_HOSTNAME = "azurefunction"
     } else {
-        sourcehostname = GetEnvironmentVariable("SYSLOG_HOSTNAME");
+        SYSLOG_HOSTNAME = GetEnvironmentVariable("SYSLOG_HOSTNAME");
     }
 
+    // options for syslog connection
     var options = {
-        syslogHostname: sourcehostname,
-        transport: protocol,    
-        port: GetEnvironmentVariable("SYSLOG_PORT")
+        syslogHostname: SYSLOG_HOSTNAME,
+        transport: SYSLOG_PROTOCOL,    
+        port: SYSLOG_PORT
     };
+
+    context.log('SYSLOG Server: ', SYSLOG_SERVER);
+    context.log('SYSLOG Port: ', SYSLOG_PORT);
+    context.log('SYSLOG Protocol: ', SYSLOG_PROTOCOL);
+    context.log('SYSLOG Hostname: ', SYSLOG_HOSTNAME);
+
 
     context.log('Event Hubs trigger function processed message: ', myEventHubMessage);
     context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
@@ -28,7 +42,7 @@ module.exports = function (context, myEventHubMessage) {
     context.log('Offset =', context.bindingData.offset);
     
     
-    var client = syslog.createClient(syslogserver, options);
+    var client = syslog.createClient(SYSLOG_SERVER, options);
 
     for(var i = 0; i < myEventHubMessage.records.length; i++) {
         var l = myEventHubMessage.records[i];
