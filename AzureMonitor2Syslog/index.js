@@ -44,3 +44,8 @@ module.exports = function (context, myEventHubMessage) {
 
     context.done();
 };
+
+function GetEnvironmentVariable(name)
+{
+    return name + ": " + process.env[name];
+}
