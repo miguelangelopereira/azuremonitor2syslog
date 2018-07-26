@@ -30,20 +30,22 @@ module.exports = function (context, myEventHubMessage) {
         port: SYSLOG_PORT
     };
 
+    // log connection variables
     context.log('SYSLOG Server: ', SYSLOG_SERVER);
     context.log('SYSLOG Port: ', SYSLOG_PORT);
     context.log('SYSLOG Protocol: ', SYSLOG_PROTOCOL);
     context.log('SYSLOG Hostname: ', SYSLOG_HOSTNAME);
 
-
+    // log received message from event hub
     context.log('Event Hubs trigger function processed message: ', myEventHubMessage);
     context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
     context.log('SequenceNumber =', context.bindingData.sequenceNumber);
     context.log('Offset =', context.bindingData.offset);
     
-    
+    // create syslog client
     var client = syslog.createClient(SYSLOG_SERVER, options);
 
+    // cycle through eventhub messages and send syslog
     for(var i = 0; i < myEventHubMessage.records.length; i++) {
         var l = myEventHubMessage.records[i];
         client.log(JSON.stringify(l), options, function(error) {
