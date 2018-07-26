@@ -29,7 +29,7 @@ module.exports = function (context, myEventHubMessage) {
     var options = {
         syslogHostname: SYSLOG_HOSTNAME,
         transport: SYSLOG_PROTOCOL,    
-        port: 1000
+        port: SYSLOG_PORT
     };
 
     // log connection variables
@@ -65,5 +65,5 @@ module.exports = function (context, myEventHubMessage) {
 
 function GetEnvironmentVariable(name)
 {
-    return name + ": " + process.env[name];
+    return process.env[name];
 }
