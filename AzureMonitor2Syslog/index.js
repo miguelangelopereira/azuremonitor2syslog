@@ -23,6 +23,8 @@ module.exports = function (context, myEventHubMessage) {
         SYSLOG_HOSTNAME = GetEnvironmentVariable("SYSLOG_HOSTNAME");
     }
 
+    var SYSLOG_PORT = GetEnvironmentVariable("SYSLOG_PORT");
+
     // options for syslog connection
     var options = {
         syslogHostname: SYSLOG_HOSTNAME,
