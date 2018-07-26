@@ -7,7 +7,7 @@ Azure monitor allows you to [forward monitoring data to eventhub](https://azure.
 A common scenario is to have a centralized SIEM based on syslog. The best option is for the SIEM to integrate directly with Azure monitor (Splunk, IBM QRadar, ArcSight...). If that is not available you can use an Azure Function accomplish this integration. This project is a sample for testing purpuses.
 
 # Overview
-![alt text](https://github.com/miguelangelopereira/azuremonitor2syslog/blob/master/media/evenhub2syslog_overview.png "azuremonitor2syslog")
+![alt text](https://github.com/miguelangelopereira/azuremonitor2syslog/blob/master/media/azuremonitor2syslog_overview.png "azuremonitor2syslog")
 
 The Azure monitor will send metris to Event Hub. The Event Hub messages will trigger this Javascript Azure Function that will convert the message to syslog format and send to the correct server.
 
