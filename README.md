@@ -17,7 +17,7 @@ Note: To send the syslog messages to an internal server in a VNET, configure the
 
 # Usage
 * Create Event Hub and setup [Azure monitoring forwarding](https://azure.microsoft.com/en-us/blog/azure-monitor-send-monitoring-data-to-an-event-hub/)
-* Create the Function App (v2)
+* Create the Function App (v2). Make sure the runtime is Javascript.
 * Import code or setup git deployment
 * In the integrate section of the function, make sure Event Hub connection is pointing to the correct event hub
 * In the Function App Application Settings, create the following App Settings:
