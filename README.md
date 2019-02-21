@@ -25,6 +25,9 @@ Note: To send the syslog messages to an internal server in a VNET, configure the
   * SYSLOG_SERVER: The remote syslog server
   * SYSLOG_PORT: The port syslog service is running
   * SYSLOG_PROTOCOL: TCP or UDP
+  
+  
+  Note: Make sure the EventHub function app extension is installed. See: https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions
 
 
 
