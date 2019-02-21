@@ -11,7 +11,7 @@ This project is a sample for testing purpuses.
 # Overview
 ![alt text](https://github.com/miguelangelopereira/azuremonitor2syslog/blob/master/media/azuremonitor2syslog_overview.png "azuremonitor2syslog")
 
-The Azure monitor will send metris to Event Hub. The Event Hub messages will trigger this Javascript Azure Function that will convert the message to syslog format and send to the correct server.
+The Azure monitor will send metrics to Event Hub. The Event Hub messages will trigger this Javascript Azure Function that will convert the message to syslog format and send to the correct server.
 
 Note: To send the syslog messages to an internal server in a VNET, configure the Function App with [VNET integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet).
 
