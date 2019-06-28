@@ -48,15 +48,17 @@ module.exports = function (context, myEventHubMessage) {
     var client = syslog.createClient(SYSLOG_SERVER, options);
 
     // cycle through eventhub messages and send syslog
-    for(var i = 0; i < myEventHubMessage.records.length; i++) {
-        var l = myEventHubMessage.records[i];
-        client.log(JSON.stringify(l), options, function(error) {
-            if (error) {
-                context.log(error);
-            } else {
-                context.log("sent message successfully");
-            }
-}       );
+    if (myEventHubMessage.records != NULL) {
+        for(var i = 0; i < myEventHubMessage.records.length; i++) {
+            var l = myEventHubMessage.records[i];
+            client.log(JSON.stringify(l), options, function(error) {
+                if (error) {
+                    context.log(error);
+                } else {
+                    context.log("sent message successfully");
+                }
+             }       );
+        }
     }
       
 
