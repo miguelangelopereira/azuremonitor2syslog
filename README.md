@@ -6,7 +6,7 @@ Azure monitor allows you to [forward monitoring data to eventhub](https://docs.m
 
 A common scenario is to have a centralized SIEM based on syslog. The best option is for the SIEM to integrate directly with Azure monitor (Splunk, IBM QRadar, ArcSight...). If that is not available you can use an Azure Function accomplish this integration. 
 
-This project is a sample for testing purpuses.
+**This project is a sample for testing purpuses**
 
 # Overview
 ![alt text](https://github.com/miguelangelopereira/azuremonitor2syslog/blob/master/media/azuremonitor2syslog_overview.png "azuremonitor2syslog")
@@ -24,7 +24,9 @@ Note: To send the syslog messages to an internal server in a VNET, configure the
   * SYSLOG_HOSTNAME: The source hostname in the syslog message
   * SYSLOG_SERVER: The remote syslog server
   * SYSLOG_PORT: The port syslog service is running
-  * SYSLOG_PROTOCOL: TCP or UDP
+  * SYSLOG_PROTOCOL: TCP or UDP (defaults to UDP if not configured)
+  * SYSLOG_FACILITY: SYSLOG Facility to be used (defaults to 16 = Local0)
+ * Make sure the syslog-client package is updated
   
   
   Note: Make sure the EventHub function app extension is installed. See: https://github.com/Azure/azure-functions-host/wiki/Updating-your-function-app-extensions
